@@ -1,38 +1,34 @@
 {
-  "schemaVersion": 1,
-  "id": "hidenbt",
-  "version": "1.0",
-
-  "name": "Hide NBT",
-  "description": "Hides the NBT tooltip when advanced tooltips are enabled (F3 + H).",
-  "authors": [
-    "yungando"
-  ],
-  "contact": {
-    "homepage": "http://ando.ws",
-    "sources": "https://github.com/yungando/hidenbt"
-  },
-
-  "license": "CC0-1.0",
-  "icon": "assets/hidenbt/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.yungando.hidenbt.HideNBT"
-    ]
-  },
-  "mixins": [
-    "hidenbt.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.13.3",
-    "fabric": "*",
-    "minecraft": "~1.18.2",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
-  }
+	"schemaVersion": 1,
+	"id": "hidenbt",
+	"version": "1.1.0",
+	"name": "HideNBT",
+	"description": "Hides the NBT tooltip when advanced tooltips are enabled (F3 + H).",
+	"authors": [
+		"yungando"
+	],
+	"contact": {
+		"homepage": "http://ando.ws",
+		"sources": "https://github.com/yungando/hidenbt"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/hidenbt/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"yungando.hidenbt.HideNBT"
+		]
+	},
+	"mixins": [
+		"hidenbt.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
 }

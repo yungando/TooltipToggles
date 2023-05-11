@@ -1,11 +1,12 @@
-package net.yungando.hidenbt.mixin;
+package yungando.hidenbt.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.text.*;
-import net.yungando.hidenbt.tooltip.TooltipChanger;
+import yungando.hidenbt.tooltip.TooltipChanger;
 
 import java.util.ArrayList;
 
@@ -15,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemStack.class)
-public abstract class TooltipChangerMixin
+public class TooltipChangerMixin
 {
-	@Inject(method = "getTooltip", at = @At("RETURN"), cancellable = true)
+	@Inject(at = @At("RETURN"), method = "getTooltip", cancellable = true)
 	protected void editTooltip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<ArrayList<Text>> info)
 	{
 		if (context.isAdvanced())
@@ -26,7 +27,7 @@ public abstract class TooltipChangerMixin
 			ItemStack itemStack = ( ItemStack ) ( Object ) this;
 			ArrayList<Text> list = info.getReturnValue();
 
-			if (itemStack.hasNbt())
+			if (itemStack.hasNbt() || itemStack.getItem() instanceof ArmorItem)
 			{
 				TooltipChanger tooltipMain = new TooltipChanger();
 				info.setReturnValue(tooltipMain.Main(client, itemStack, list));
