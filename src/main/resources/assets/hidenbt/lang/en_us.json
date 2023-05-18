@@ -1,0 +1,9 @@
+{
+  "hidenbt.title": "HideNBT",
+  "hidenbt.config.hidenbt.title": "Hide NBT Tags",
+  "hidenbt.config.hidenbt.desc": "Hides the \"NBT Tag(s): #\" tooltip on enchanted or modified items.",
+  "hidenbt.config.hideid.title": "Hide Minecraft ID",
+  "hidenbt.config.hideid.desc": "Hides the item's Minecraft ID tooltip.",
+  "hidenbt.config.hidearmormat.title": "Hide Armor Material",
+  "hidenbt.config.hidearmormat.desc": "Hides the armor material tooltip provided by the Armor Chroma mod."
+}

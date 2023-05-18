@@ -4,7 +4,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.text.*;
 import yungando.hidenbt.tooltip.TooltipChanger;
 
@@ -27,11 +26,8 @@ public class TooltipChangerMixin
 			ItemStack itemStack = ( ItemStack ) ( Object ) this;
 			ArrayList<Text> list = info.getReturnValue();
 
-			if (itemStack.hasNbt() || itemStack.getItem() instanceof ArmorItem)
-			{
-				TooltipChanger tooltipMain = new TooltipChanger();
-				info.setReturnValue(tooltipMain.Main(client, itemStack, list));
-			}
+			TooltipChanger tooltipMain = new TooltipChanger();
+			info.setReturnValue(tooltipMain.Main(client, itemStack, list));
 		}
 	}
 }
