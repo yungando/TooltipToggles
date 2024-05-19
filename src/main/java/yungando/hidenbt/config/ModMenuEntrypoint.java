@@ -2,16 +2,17 @@ package yungando.hidenbt.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
-import dev.isxander.yacl.api.YetAnotherConfigLib;
-import net.minecraft.text.Text;
+import me.shedaniel.autoconfig.AutoConfig;
+import yungando.hidenbt.HideNBT;
+import yungando.hidenbt.config.HideNBTConfig.HideNBTAutoConfig;
 
 public class ModMenuEntrypoint implements ModMenuApi {
+
+    private static final ConfigScreenFactory<?> FACTORY = HideNBT.USE_AUTO_CONFIG
+            ? parent -> AutoConfig.getConfigScreen(HideNBTAutoConfig.class, parent).get()
+            : parent -> null;
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        return parent -> YetAnotherConfigLib.createBuilder()
-                .title(Text.translatable("hidenbt.title"))
-                .category(HideNBTConfig.getConfigCategory())
-                .save(HideNBTConfig.INSTANCE::save)
-                .build().generateScreen(parent);
+        return FACTORY;
     }
 }

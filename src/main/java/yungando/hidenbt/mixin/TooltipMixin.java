@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemStack.class)
-public class TooltipChangerMixin
+public class TooltipMixin
 {
 	@Inject(at = @At("RETURN"), method = "getTooltip", cancellable = true)
 	protected void editTooltip(PlayerEntity player, TooltipContext context, CallbackInfoReturnable<ArrayList<Text>> info)
