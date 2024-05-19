@@ -2,10 +2,10 @@ package yungando.hidenbt.tooltip;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.text.*;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.registry.Registry;
 import yungando.hidenbt.HideNBT;
 
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ public class TooltipChanger
     {
         if (HideNBT.config.hideNBT() && itemStack.hasNbt())
         {
-            ArrayList<Text> nbt = new ArrayList<Text>();
-            nbt.add(MutableText.of(new TranslatableTextContent("item.nbt_tags", itemStack.getNbt().getKeys().size())).formatted(Formatting.DARK_GRAY));
+            ArrayList<Text> nbt = new ArrayList<>();
+            nbt.add(Text.translatable("item.nbt_tags", itemStack.getNbt().getSize()).formatted(Formatting.DARK_GRAY));
             int nbtIndex = list.indexOf(nbt.get(0));
             if (nbtIndex >= 0)
             {
@@ -28,8 +28,8 @@ public class TooltipChanger
 
         if(HideNBT.config.hideID())
         {
-            ArrayList<Text> id = new ArrayList<Text>();
-            id.add(MutableText.of(new LiteralTextContent(Registry.ITEM.getId(itemStack.getItem()).toString())).formatted(Formatting.DARK_GRAY));
+            ArrayList<Text> id = new ArrayList<>();
+            id.add(Text.literal(Registries.ITEM.getId(itemStack.getItem()).toString()).formatted(Formatting.DARK_GRAY));
             int idIndex = list.indexOf(id.get(0));
             if (idIndex >= 0)
             {
@@ -39,8 +39,8 @@ public class TooltipChanger
 
         if (HideNBT.config.hideArmorMaterial() && itemStack.getItem() instanceof ArmorItem armorItem)
         {
-            ArrayList<Text> material = new ArrayList<Text>();
-            material.add(MutableText.of(new TranslatableTextContent("armorchroma.tooltip.material", armorItem.getMaterial().toString().toLowerCase())).formatted(Formatting.DARK_GRAY));
+            ArrayList<Text> material = new ArrayList<>();
+            material.add(Text.translatable("armorchroma.tooltip.material", armorItem.getMaterial().toString().toLowerCase()).formatted(Formatting.DARK_GRAY));
             int materialIndex = list.indexOf(material.get(0));
             if (materialIndex >= 0)
             {
@@ -95,7 +95,7 @@ public class TooltipChanger
 
     public ArrayList<Text> SortAttributes(int modifiersIndex, ArrayList<Text> list)
     {
-        ArrayList<Text> attributeModifiers = new ArrayList<Text>();
+        ArrayList<Text> attributeModifiers = new ArrayList<>();
         for (Text tooltip : list)
         {
             if (tooltip.toString().contains("attribute.modifier"))
