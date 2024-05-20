@@ -106,14 +106,6 @@ public class TooltipChanger
 
         list.removeAll(attributeModifiers);
 
-        System.out.println("Before Sort:");
-        for (Text tooltip : attributeModifiers)
-        {
-            System.out.println(tooltip.toString().split("attribute.name.generic.")[1].split("'")[0]);
-        }
-
-        System.out.println("After Sort:");
-
         attributeModifiers.sort(Comparator.comparing(tooltip -> tooltip.toString().split("attribute.name.generic.")[1].split("'")[0]));
 
         list.addAll(modifiersIndex+1, attributeModifiers);
