@@ -1,0 +1,11 @@
+{
+  "text.autoconfig.tooltiptoggles.title": "ToggleTooltips",
+  "text.autoconfig.tooltiptoggles.option.hideNBT": "Hide NBT Tags",
+  "text.autoconfig.tooltiptoggles.option.hideNBT.@Tooltip": "Hides the \"NBT Tag(s): #\" tooltip on enchanted or modified items.",
+  "text.autoconfig.tooltiptoggles.option.hideID": "Hide Minecraft ID",
+  "text.autoconfig.tooltiptoggles.option.hideID.@Tooltip": "Hides the item's Minecraft ID tooltip.",
+  "text.autoconfig.tooltiptoggles.option.removeItalics": "Remove Italics",
+  "text.autoconfig.tooltiptoggles.option.removeItalics.@Tooltip": "Unitalicises all tooltips.",
+  "text.autoconfig.tooltiptoggles.option.sortAttributes": "Sort Attributes Alphabetically",
+  "text.autoconfig.tooltiptoggles.option.sortAttributes.@Tooltip": "Sorts the armor attribute (e.g. Armor Toughness, Knockback Resistance) tooltips alphabetically."
+}
