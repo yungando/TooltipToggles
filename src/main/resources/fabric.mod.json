@@ -1,35 +1,38 @@
 {
-	"schemaVersion": 1,
-	"id": "hidenbt",
-	"version": "1.1.0",
-	"name": "HideNBT",
-	"description": "Hides the NBT tooltip when advanced tooltips are enabled (F3 + H).",
-	"authors": [
-		"yungando"
-	],
-	"contact": {
-		"homepage": "http://ando.ws",
-		"sources": "https://github.com/yungando/hidenbt"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/hidenbt/icon.png",
-
-	"environment": "client",
-	"entrypoints": {
-		"client": ["yungando.hidenbt.HideNBT"],
-		"modmenu": ["yungando.hidenbt.config.ModMenuEntrypoint"]
-	},
-	"mixins": [
-		"hidenbt.mixins.json"
-	],
-	"depends": {
-		"minecraft": "1.20.x",
-		"fabricloader": ">=0.15.10",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"modmenu": "*",
-		"cloth-config2": "*"
-	}
+  "schemaVersion": 1,
+  "id": "toggletooltips",
+  "version": "1.2.0",
+  "name": "ToggleTooltips",
+  "description": "Provides toggles for a number of item tooltips and features.",
+  "authors": [
+    "yungando"
+  ],
+  "contact": {
+    "homepage": "http://ando.ws",
+    "sources": "https://github.com/yungando/tooltiptoggles"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/toggletooltips/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "yungando.tooltiptoggles.TooltipToggles"
+    ],
+    "modmenu": [
+      "yungando.tooltiptoggles.config.ModMenuEntrypoint"
+    ]
+  },
+  "mixins": [
+    "tooltiptoggles.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "1.21.1",
+    "fabricloader": ">=0.16.13",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*",
+    "cloth-config2": "*"
+  }
 }
