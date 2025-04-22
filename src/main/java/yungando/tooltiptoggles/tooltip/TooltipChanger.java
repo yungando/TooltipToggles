@@ -29,14 +29,18 @@ public class TooltipChanger {
     for (Text tooltip : list) {
       if (tooltip.toString().contains("attribute.modifier")) {
         attributeModifiers.add(tooltip);
+        if (attributeModifiers.size() > 2) {
+          return list;
+        }
       }
     }
 
     list.removeAll(attributeModifiers);
 
-    attributeModifiers.sort(Comparator.comparing(tooltip -> tooltip.toString().split("attribute.name.generic.")[1].split("'")[0]));
+    attributeModifiers
+        .sort(Comparator.comparing(tooltip -> tooltip.toString().split("attribute.name.")[1].split("'")[0]));
 
-    list.addAll(modifiersIndex+1, attributeModifiers);
+    list.addAll(modifiersIndex + 1, attributeModifiers);
 
     return list;
   }
@@ -51,8 +55,7 @@ public class TooltipChanger {
     if (TooltipToggles.config.sortAttributes()) {
       int modifiersIndex = -1;
       for (Text tooltip : list) {
-        if (tooltip.toString().contains("item.modifiers"))
-        {
+        if (tooltip.toString().contains("item.modifiers")) {
           modifiersIndex = list.indexOf(tooltip);
           break;
         }
@@ -70,17 +73,18 @@ public class TooltipChanger {
     if (TooltipToggles.config.hideComponents() && !itemStack.getComponents().isEmpty()) {
       ArrayList<Text> components = new ArrayList<>();
       assert itemStack.getComponents() != null;
-      components.add(Text.translatable("item.components", itemStack.getComponents().size()).formatted(Formatting.DARK_GRAY));
-      int componentsIndex = list.indexOf(components.get(0));
+      components
+          .add(Text.translatable("item.components", itemStack.getComponents().size()).formatted(Formatting.DARK_GRAY));
+      int componentsIndex = list.indexOf(components.getFirst());
       if (componentsIndex >= 0) {
         list.remove(componentsIndex);
       }
     }
 
-    if(TooltipToggles.config.hideID()) {
+    if (TooltipToggles.config.hideID()) {
       ArrayList<Text> id = new ArrayList<>();
       id.add(Text.literal(Registries.ITEM.getId(itemStack.getItem()).toString()).formatted(Formatting.DARK_GRAY));
-      int idIndex = list.indexOf(id.get(0));
+      int idIndex = list.indexOf(id.getFirst());
 
       if (idIndex >= 0) {
         list.remove(idIndex);
