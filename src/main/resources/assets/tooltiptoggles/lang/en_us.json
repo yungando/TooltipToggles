@@ -1,5 +1,5 @@
 {
-  "text.autoconfig.tooltiptoggles.title": "ToggleTooltips",
+  "text.autoconfig.tooltiptoggles.title": "TooltipToggles",
   "text.autoconfig.tooltiptoggles.option.hideComponents": "Hide Components",
   "text.autoconfig.tooltiptoggles.option.hideComponents.@Tooltip": "Hides the \"# components\" tooltip on enchanted or modified items.",
   "text.autoconfig.tooltiptoggles.option.hideID": "Hide Minecraft item ID",

@@ -1,4 +1,6 @@
-# TooltipToggles
+<p align="center"><img src="https://github.com/yungando/TooltipToggles/blob/main/src/main/resources/assets/tooltiptoggles/icon.png" width="128" height="128"></p>
+<h3 align="center">TooltipToggles</h3>
+
 ## Features
 Provides toggles for a couple of tooltips and tooltip features.
 
