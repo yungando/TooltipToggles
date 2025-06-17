@@ -1,9 +1,9 @@
 {
   "text.autoconfig.tooltiptoggles.title": "TooltipToggles",
   "text.autoconfig.tooltiptoggles.option.hideComponents": "Hide Components",
-  "text.autoconfig.tooltiptoggles.option.hideComponents.@Tooltip": "Hides the \"# components\" tooltip on enchanted or modified items.",
+  "text.autoconfig.tooltiptoggles.option.hideComponents.@Tooltip": "Hides the \"# components\" tooltip when 'Advanced Tooltips' is enabled.",
   "text.autoconfig.tooltiptoggles.option.hideID": "Hide Minecraft item ID",
-  "text.autoconfig.tooltiptoggles.option.hideID.@Tooltip": "Hides the item's Minecraft ID tooltip.",
+  "text.autoconfig.tooltiptoggles.option.hideID.@Tooltip": "Hides the item's Minecraft ID tooltip when 'Advanced Tooltips' is enabled.",
   "text.autoconfig.tooltiptoggles.option.removeItalics": "Remove Italics",
   "text.autoconfig.tooltiptoggles.option.removeItalics.@Tooltip": "Unitalicises all tooltips.",
   "text.autoconfig.tooltiptoggles.option.sortAttributes": "Sort Attributes Alphabetically",

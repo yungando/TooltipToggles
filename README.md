@@ -6,8 +6,8 @@ Provides toggles for a couple of tooltips and tooltip features.
 
 ### Toggles
 
-- Hide Components*
-- Hide Item ID
+- Hide Components in Advanced Tooltips*
+- Hide Item ID in Advanced Tooltips
 - Remove italics*
 - Sort Attribute Modifiers alphabetically*
 
@@ -15,4 +15,4 @@ Provides toggles for a couple of tooltips and tooltip features.
 
 ### Dependencies
 
-[Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) optionally required to change config in-game.
+[Mod Menu](https://modrinth.com/mod/modmenu) and [Cloth Config](https://modrinth.com/mod/cloth-config) optionally required to change config.
