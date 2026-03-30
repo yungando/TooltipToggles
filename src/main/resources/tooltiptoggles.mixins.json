@@ -1,12 +1,15 @@
 {
   "required": true,
   "package": "yungando.tooltiptoggles.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "InGameHudMixin",
-    "TooltipMixin"
-  ],
+  "compatibilityLevel": "JAVA_25",
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "GuiMixin",
+    "ItemStackMixin"
+  ]
 }

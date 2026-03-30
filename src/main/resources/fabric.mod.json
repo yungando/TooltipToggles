@@ -27,9 +27,9 @@
     "tooltiptoggles.mixins.json"
   ],
   "depends": {
-    "minecraft": ">=1.21",
-    "fabricloader": ">=0.16.13",
-    "java": ">=21"
+    "fabricloader": ">=0.18.4",
+    "minecraft": ">=26.1",
+    "java": ">=25"
   },
   "suggests": {
     "modmenu": "*",
