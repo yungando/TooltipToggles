@@ -11,7 +11,6 @@ public class TooltipTogglesConfig {
   public boolean removeItalics() { return true; }
   public boolean sortAttributes() { return true; }
 
-  /** Config class requiring AutoConfig */
   @SuppressWarnings("FieldMayBeFinal")
   @Config(name = TooltipToggles.MODID)
   public static class TooltipTogglesAutoConfig extends TooltipTogglesConfig implements ConfigData {

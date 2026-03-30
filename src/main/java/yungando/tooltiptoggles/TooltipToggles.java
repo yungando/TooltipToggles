@@ -4,12 +4,12 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.Registries;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import yungando.tooltiptoggles.config.TooltipTogglesConfig;
 import yungando.tooltiptoggles.config.TooltipTogglesConfig.TooltipTogglesAutoConfig;
 
@@ -32,21 +32,21 @@ public class TooltipToggles implements ClientModInitializer {
     }
   }
 
-  private static void removeItalics(Text tooltip) {
-    if (tooltip instanceof MutableText tooltipText) {
+  private static void removeItalics(Component tooltip) {
+    if (tooltip instanceof MutableComponent tooltipText) {
       if (tooltipText.getStyle().isItalic()) {
         tooltipText.setStyle(tooltipText.getStyle().withItalic(false));
       }
 
-      for (Text siblingTooltip : tooltipText.getSiblings()) {
+      for (Component siblingTooltip : tooltipText.getSiblings()) {
         removeItalics(siblingTooltip);
       }
     }
   }
 
-  private static List<Text> sortAttributes(int modifiersIndex, List<Text> list) {
-    ArrayList<Text> attributeModifiers = new ArrayList<>();
-    for (Text tooltip : list) {
+  private static List<Component> sortAttributes(int modifiersIndex, List<Component> list) {
+    ArrayList<Component> attributeModifiers = new ArrayList<>();
+    for (Component tooltip : list) {
       if (tooltip.toString().contains("attribute.modifier")) {
         attributeModifiers.add(tooltip);
         if (attributeModifiers.size() > 2) {
@@ -62,16 +62,16 @@ public class TooltipToggles implements ClientModInitializer {
     return list;
   }
 
-  public static List<Text> tooltipEditor(ItemStack itemStack, TooltipType type, List<Text> list) {
+  public static List<Component> tooltipEditor(ItemStack itemStack, TooltipFlag type, List<Component> list) {
     if (TooltipToggles.config.removeItalics()) {
-      for (Text tooltip : list) {
+      for (Component tooltip : list) {
         removeItalics(tooltip);
       }
     }
 
     if (TooltipToggles.config.sortAttributes()) {
       int modifiersIndex = -1;
-      for (Text tooltip : list) {
+      for (Component tooltip : list) {
         if (tooltip.toString().contains("item.modifiers")) {
           modifiersIndex = list.indexOf(tooltip);
           break;
@@ -86,9 +86,8 @@ public class TooltipToggles implements ClientModInitializer {
     if (!type.isAdvanced()) { return list; }
 
     if (TooltipToggles.config.hideComponents() && !itemStack.getComponents().isEmpty()) {
-      ArrayList<Text> components = new ArrayList<>();
-      assert itemStack.getComponents() != null;
-      components.add(Text.translatable("item.components", itemStack.getComponents().size()).formatted(Formatting.DARK_GRAY));
+      ArrayList<Component> components = new ArrayList<>();
+        components.add(Component.translatable("item.components", itemStack.getComponents().size()).withStyle(ChatFormatting.DARK_GRAY));
       int componentsIndex = list.indexOf(components.getFirst());
       if (componentsIndex >= 0) {
         list.remove(componentsIndex);
@@ -96,8 +95,8 @@ public class TooltipToggles implements ClientModInitializer {
     }
 
     if (TooltipToggles.config.hideID()) {
-      ArrayList<Text> id = new ArrayList<>();
-      id.add(Text.literal(Registries.ITEM.getId(itemStack.getItem()).toString()).formatted(Formatting.DARK_GRAY));
+      ArrayList<Component> id = new ArrayList<>();
+      id.add(Component.literal(BuiltInRegistries.ITEM.getKey(itemStack.getItem()).toString()).withStyle(ChatFormatting.DARK_GRAY));
       int idIndex = list.indexOf(id.getFirst());
 
       if (idIndex >= 0) {

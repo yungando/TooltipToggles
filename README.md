@@ -2,14 +2,15 @@
 <h3 align="center">TooltipToggles</h3>
 
 ## Features
+
 Provides toggles for a couple of tooltips and tooltip features.
 
 ### Toggles
 
-- Hide Components in Advanced Tooltips*
+- Hide Components in Advanced Tooltips\*
 - Hide Item ID in Advanced Tooltips
-- Remove italics*
-- Sort Attribute Modifiers alphabetically*
+- Remove italics\*
+- Sort Attribute Modifiers alphabetically\*
 
 \* Enabled by default.
 
