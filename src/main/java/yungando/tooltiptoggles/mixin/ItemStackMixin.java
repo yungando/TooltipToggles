@@ -6,7 +6,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Slice;
 import yungando.tooltiptoggles.TooltipToggles;
@@ -19,7 +18,6 @@ import java.util.function.Consumer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Debug(export = true)
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
   @WrapWithCondition(
