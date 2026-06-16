@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "InGameHudMixin",
-    "TooltipMixin"
+    "TooltipMixin",
+    "CreativeInventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
