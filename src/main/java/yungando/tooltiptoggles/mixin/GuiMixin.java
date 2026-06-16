@@ -1,12 +1,12 @@
 package yungando.tooltiptoggles.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.Hud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import yungando.tooltiptoggles.TooltipToggles;
 
-@Mixin(Gui.class)
+@Mixin(Hud.class)
 public class GuiMixin {
   @ModifyExpressionValue(method = "extractSelectedItemName", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;has(Lnet/minecraft/core/component/DataComponentType;)Z"))
   private boolean TooltipToggles$removeItalics(boolean original) {
